@@ -5,7 +5,7 @@ import java.util.Scanner;
 import core.less6.Season;
 
 public class Main {
-
+//ghghgh
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
