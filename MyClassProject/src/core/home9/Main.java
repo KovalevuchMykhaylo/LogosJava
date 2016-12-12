@@ -1,20 +1,13 @@
 package core.home9; 
-import java.io.ObjectInputStream.GetField;
 import java.util.ArrayList; 
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List; 
 import java.util.Scanner; 
-import java.util.Set;
-import java.util.LinkedHashSet;
-import java.util.TreeSet;
-import java.util.HashSet;
-
-import core.home9.Car;
 
 public class Main { 
 	
-	private final static LinkedHashSet<Car> set = new LinkedHashSet<>();
-	private final static LinkedHashSet<Car> List = new LinkedHashSet<>();
+	private final static LinkedHashSet <Car> Set = new LinkedHashSet<>(); 
 	private static final Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) { 
@@ -28,89 +21,87 @@ public class Main {
 		Car car7 = new Car("BMW", new Body("Green", "Metall", "Touring"), new SteeringWheel(15, true), new Wheel(15 ,5, "Summer")); 
 		Car car8 = new Car("Ford", new Body("Green", "Carbon", "Compartment"), new SteeringWheel(15, true), new Wheel(17 ,5, "Summer")); 
 		
-			set.add(car1); 
-			set.add(car2); 
-			set.add(car3); 
-			set.add(car4); 
-			set.add(car5); 
-			set.add(car6); 
-			set.add(car7); 
-			set.add(car8); 
+			Set.add(car1); 
+			Set.add(car2); 
+			Set.add(car3); 
+			Set.add(car4); 
+			Set.add(car5); 
+			Set.add(car6); 
+			Set.add(car7); 
+			Set.add(car8); 
 			
 			while(true){
-	System.out.println("Enter 1 to find type of color anal wheel size");
-	System.out.println("Enter 2 to delete car with color");
-	System.out.println("Enter 3 to change tires");
-	switch (sc.next()) {
-		case "1":
-			cars1();
-		
-		break;
-		case "2":
-			cars2();
-		
-			break;
-		case "3":
-			cars3();
+				System.out.println("Enter 1 to to change tires");
+				System.out.println("Enter 2 to delete car with diametr tires");
+				System.out.println("Enter 3 to show car by tires");
+					switch (sc.next()) {
+					case "1":
+						cars1();
+					
+					break;
+					case "2":
+						cars2();
+					
+						break;
+					case "3":
+						cars3();
 
-			break;
-		default:
-			sc.close();
-			return;
-	
-	}
-		}
-	}
-	
-	static void cars1(){
-		System.out.println("Enter min diametr to change tiets");
-		int min = sc.nextInt();
-		System.out.println("Enter max diametr to change tiets");
-		int max = sc.nextInt();
-		System.out.println("Enter color to change tiets");
-		String color = sc.next();
-		Iterator<Car> iter = set.iterator();
-		if(!set.isEmpty()){
-		while (iter.hasNext()) {
-			Car car = iter.next();
-			if(car.getWheel().getDiameter()>=min&&car.getWheel().getDiameter()<=max&&car.getBody().getColor().equals(color)){
-				car.getWheel().setTires("Winter");
-			}
-		}
-		set.forEach(System.out::println);
-		}
-	}
-	static void cars2(){
-		System.out.println("Enter nim diametr to change tiets");
-		int min = sc.nextInt();
-		System.out.println("Enter max diametr to change tiets");
-		int max = sc.nextInt();
-		System.out.println("Enter color to change tiets");
-		int color = sc.nextInt();
-		Iterator<Car> iter = set.iterator();
-		if(!set.isEmpty()){
-		while (iter.hasNext()) {
-			Car car = iter.next();
-			if(car.getWheel().getDiameter()>=min&&car.getWheel().getDiameter()<=max){
-				set.remove(car);
+						break;
+					default:
+						sc.close();
+						return;
+				
 				}
-		}
-		set.forEach(System.out::println);
-	}
-	}
-	static void cars3(){
-		System.out.println("Enter type of body");
-		String type = sc.next();
-		System.out.println("Enter diametr of tiets");
-		int Dim = sc.nextInt();
-		Iterator<Car> iter = List.iterator();
-		if(!List.isEmpty()){
-		while (iter.hasNext()){
-			Car car = iter.next();
-			if(car.getBody().getType().equals(type)&&car.getWheel().getDiameter()==Dim){
-				System.out.println(car);//можна дыстати його обект а потым хеш код
+					}
+				}
+				
+				static void cars1(){
+					System.out.println("Enter min diametr to change tiets");
+					int min = sc.nextInt();
+					System.out.println("Enter max diametr to change tiets");
+					int max = sc.nextInt();
+					System.out.println("Enter color to change tiets");
+					String color = sc.next();
+					Iterator<Car> iter = Set.iterator();
+					if(!Set.isEmpty()){
+					while (iter.hasNext()) {
+						Car car = iter.next();
+						if(car.getWheel().getDiameter()>=min&&car.getWheel().getDiameter()<=max&&car.getBody().getColor().equals(color)){
+							car.getWheel().setTires("Winter");
+						}
+					}
+					Set.forEach(System.out::println);
+					}
+				}
+				static void cars2(){
+					System.out.println("Enter nim diametr to change tiets");
+					int min = sc.nextInt();
+					System.out.println("Enter max diametr to change tiets");
+					int max = sc.nextInt();
+					Iterator<Car> iter = Set.iterator();
+					if(!Set.isEmpty()){
+					while (iter.hasNext()) {
+						Car car = iter.next();
+						if(car.getWheel().getDiameter()>=min&&car.getWheel().getDiameter()<=max){
+							Set.remove(car);
+							}
+					}
+					Set.forEach(System.out::println);
+				}
+				}
+				static void cars3(){
+					System.out.println("Enter type of tires");
+					String type = sc.next();
+					System.out.println("Enter diametr of tiets");
+					int Dim = sc.nextInt();
+					Iterator<Car> iter = Set.iterator();
+					if(!Set.isEmpty()){
+					while (iter.hasNext()){
+						Car car = iter.next();
+						if(car.getWheel().getTires().equals(type)&&car.getWheel().getDiameter()==Dim){
+							System.out.println(car);//����� ������� ���� ����� � ����� ��� ���
+							}
+						}
+					}
 				}
 			}
-		}
-	}
-}

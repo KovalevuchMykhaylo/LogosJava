@@ -1,7 +1,5 @@
 package core.home9;
 
-import java.util.Arrays;
-
 public class Wheel{
 	
 	private int diameter; 
@@ -77,6 +75,8 @@ public class Wheel{
 		return "Wheel [diameter=" + diameter + ", count=" + count + ", tires="
 				+ tires + "]";
 	}
+
+	
 
 	
 }

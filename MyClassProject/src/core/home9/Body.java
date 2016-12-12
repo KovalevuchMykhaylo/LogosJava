@@ -1,7 +1,5 @@
 package core.home9;
 
-import java.util.Arrays;
-
 public class Body {
 	
 	private String material;
@@ -11,6 +9,7 @@ public class Body {
 	private String type;
 
 	public Body( String color, String material, String type) {
+		super();
 		this.material = material;
 		this.color = color;
 		this.type = type;
