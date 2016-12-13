@@ -1,6 +1,7 @@
 package testiterators;
 
 import java.util.*;
+import static testiterators.Gender.*;
 
 public class Main {
 	
@@ -9,12 +10,12 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Person per1 = new Person("Kolya", "Male", "Kiev", 25, 175, 75);
-		Person per2 = new Person("Vasya", "Male", "Kiev", 20, 170, 70);
-		Person per3 = new Person("Mukola", "Male", "Kiev", 30, 180, 80);
-		Person per4 = new Person("Anya", "Female", "Krakov", 20, 165, 65);
-		Person per5 = new Person("Tanya", "Female", "Krakov", 28, 178, 78);
-		Person per6 = new Person("Milen", "Female", "Krakov", 29, 179, 79);
+		Person per1 = new Person("Kolya", "Kiev", MALE, 25, 175, 75);
+		Person per2 = new Person("Vasya", "Kiev", MALE, 20, 170, 70);
+		Person per3 = new Person("Mukola", "Kiev", MALE, 30, 180, 80);
+		Person per4 = new Person("Anya", "Krakov", FEMALE, 20, 165, 65);
+		Person per5 = new Person("Tanya", "Krakov", FEMALE, 28, 178, 78);
+		Person per6 = new Person("Milen", "Krakov", FEMALE, 29, 179, 79);
 		
 		list.add(per1);
 		list.add(per2);
