@@ -15,6 +15,7 @@ public class Main {
 		Person per4 = new Person("Anya", "Female", "Krakov", 20, 165, 65);
 		Person per5 = new Person("Tanya", "Female", "Krakov", 28, 178, 78);
 		Person per6 = new Person("Milen", "Female", "Krakov", 29, 179, 79);
+		Person per7 = new Person("Kim", "Female", "Krakov", 22, 189, 79);
 		
 		list.add(per1);
 		list.add(per2);
@@ -22,6 +23,7 @@ public class Main {
 		list.add(per4);
 		list.add(per5);
 		list.add(per6);
+		list.add(per7)
 	
 		list.forEach(System.out :: println);
 		System.out.println("Enter 1 to kill by gender!!!");
