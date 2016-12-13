@@ -2,34 +2,26 @@ package core.home10;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.ListIterator;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
-
-
 
 public class Corzuna {
 	ArrayList<Comodity> array = new ArrayList<>();
-	private int sum;
 	
 	public void addTovar(){
-		System.out.println("**********Параметри товару*************");
+		System.out.println("**********Product options*************");
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Товар: ");
+		System.out.println("Product name: ");
 		String name = sc.nextLine();
-		System.out.println("Ціна: ");
+		System.out.println("Price: ");
 		int price = sc.nextInt();
-		System.out.println("Ширина: ");
+		System.out.println("Wight: ");
 		int wigth = sc.nextInt();
-		System.out.println("Довжина: ");
+		System.out.println("Lenght: ");
 		int len = sc.nextInt();
 		array.add(new Comodity(name, price,wigth,len));
-		System.out.println(array);
+		array.forEach(System.out::println);
+		
 	}
 	
 	public void deleteTovar(String name){
@@ -40,19 +32,19 @@ public class Corzuna {
 			}
 		}
 		for (Comodity comodity : array) {
-			System.out.println("Товар "+comodity);
+			System.out.println("Product "+comodity);
 		}
 	}
 	
 	public void replaceTovar(String nameOfReplace){
 		Scanner sc = new Scanner(System.in);
-		System.out.println("введіть назву нового товару: ");
+		System.out.println("Enter name of new product: ");
 		String name = sc.nextLine();
-		System.out.println("Ціна: ");
+		System.out.println("Price: ");
 		int price = sc.nextInt();
-		System.out.println("Ширина: ");
+		System.out.println("Widht: ");
 		int wigth = sc.nextInt();
-		System.out.println("Довжина: ");
+		System.out.println("Leght: ");
 		int len = sc.nextInt();
 		Comodity c = new Comodity(name, price,wigth,len);
 		int j =0;
@@ -62,51 +54,36 @@ public class Corzuna {
 			}
 		}
 		array.set(j, c);
-		
 		for (Comodity comodity : array) {
 			System.out.println(comodity);
 		}
-		
 	}
+	
 	public void sortByName(){
 		Collections.sort(array, new SortByName());
 		for (Comodity comodity : array) {
 			System.out.println(comodity);
 		}
 	}
+	
 	public void sortByLenght(){
 		Collections.sort(array, new SortByLenght());
-		
 		for (Comodity comodity : array) {
 			System.out.println(comodity);
-		}
-	}
-	public void sortByPrice(){
-		Collections.sort(array, new SortByPrice());
-		
-		for (Comodity comodity : array) {
-			System.out.println(comodity);
-		}
-	}
-	public void sortByWidth(){
-		Collections.sort(array, new SortByWidth());
-		
-		for (Comodity comodity : array) {
-			System.out.println(comodity);
-		}
-	}
-	public void get(int i){
-		for (int j = 0; j < array.size(); j++) {
-			if(j==i){
-				System.out.println(array.get(j).toString());
-			}
 		}
 	}
 	
-	public int sumOfCorzuna(){
+	public void sortByPrice(){
+		Collections.sort(array, new SortByPrice());
 		for (Comodity comodity : array) {
-			sum = sum + comodity.getPrice();
+			System.out.println(comodity);
 		}
-		return sum;
+	}
+	
+	public void sortByWidth(){
+		Collections.sort(array, new SortByWidth());
+		for (Comodity comodity : array) {
+			System.out.println(comodity);
+		}
 	}
 }

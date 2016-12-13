@@ -1,9 +1,5 @@
 package core.home10;
 
-import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
-
 public class Comodity {
 	
 	private String name;
@@ -11,7 +7,6 @@ public class Comodity {
 	private int width;
 	private int lenght;
 	public Comodity(String name, int price, int width, int lenght) {
-		super();
 		this.name = name;
 		this.price = price;
 		this.width = width;
@@ -43,7 +38,7 @@ public class Comodity {
 	}
 	@Override
 	public String toString() {
-		return "Назва товару: " + name + ",Ціна: " + price + ", Ширина: " + width + ", Довжина:" + lenght + "]";
+		return "Product name: " + name + ",Price: " + price + ", Width: " + width + ", Lenght:" + lenght + "]";
 	}
 	@Override
 	public int hashCode() {

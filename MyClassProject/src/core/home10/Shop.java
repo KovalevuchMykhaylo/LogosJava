@@ -7,6 +7,5 @@ public class Shop {
 	Set<Comodity> tovar = new TreeSet<>();
 
 	public void addTovar(){
-		
 	}
 }
