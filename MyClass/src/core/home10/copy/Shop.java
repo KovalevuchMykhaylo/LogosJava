@@ -79,5 +79,3 @@ public class Shop {
 		return List.stream().sorted(comparingInt(Comodity::getWidth));
 		}
 	}
-
-
