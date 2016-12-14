@@ -1,18 +1,11 @@
 package core.home10.copy;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
-import java.util.stream.Stream;
-import static java.util.Comparator.comparingInt;
-
-
 
 public class Main {
 	
 	private static final Scanner sc = new Scanner(System.in);
 	private static final Shop s = new Shop();
-
 	
 	public static void main(String[] args) {
 				

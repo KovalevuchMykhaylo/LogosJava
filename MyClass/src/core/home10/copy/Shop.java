@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
-
 public class Shop {
 	
 	private static final Scanner sc = new Scanner(System.in);
