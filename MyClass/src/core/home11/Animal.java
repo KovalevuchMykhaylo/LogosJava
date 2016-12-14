@@ -9,9 +9,9 @@ public class Animal {
 	public Animal() {
 		super();
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Введіть кличку тварини:");
+		System.out.println("Enter pet name:");
 		String nameOfAnimal = sc.nextLine();
-		System.out.println("Введіть тип тварини:");
+		System.out.println("Enter type of pet:");
 		String typeOfAnimal = sc.nextLine();
 		this.nameOfAnimal = nameOfAnimal;
 		
@@ -23,10 +23,8 @@ public class Animal {
 			}
 		}
 		if(t == null){
-			System.out.println("Такого типу тварин немає у цьому зооклубі");
+			System.out.println("This type is incorrect");
 		}
-		
-		
 		
 	}
 
