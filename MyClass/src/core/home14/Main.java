@@ -4,10 +4,15 @@ package core.home14;
 import core.home14.Collection.First;
 import core.home14.Collection.Second;
 import core.home14.Collection.Second.local;
-import core.home14.Collection.oneOfTwo;
+import core.home14.Collection.OneOfTwo;
 
 	public class Main { 
 	public static void main(String[] args) { 
+		
+		Collection a = new Collection(new Object[10]);
+		
+		OneOfTwo oneOfTwo = new OneOfTwo(a);
+		System.out.println(oneOfTwo);
 	
 		Collection c = new Collection(new Object[10]);
 		
@@ -30,18 +35,18 @@ import core.home14.Collection.oneOfTwo;
 	sc.Next(); 
 	
 		 new Collection(new Object[10]) {
-			public void doso() {
+			 private void doso() {
 				for(int i = 10; i>0; i--){
 					if(((i-3)%2)==1){
 						System.out.println(i);
 					}
 				}
 			
-				return ;
 			}
 		};
 		
 		
 	}
 } 
+
 	

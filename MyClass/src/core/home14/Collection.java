@@ -97,7 +97,11 @@ public class Collection {
 		 }
 		}
 	}
-	public static class oneOfTwo{
+	public static class OneOfTwo{
+		public OneOfTwo(Collection a) {
+			// TODO Auto-generated constructor stub
+		}
+
 		{for (Object object : arr) { 
 			System.out.println(object); 
 				for (int i = 0; i < arr.length; i++) { 
