@@ -23,7 +23,7 @@ public class Main {
 		list.add(per4);
 		list.add(per5);
 		list.add(per6);
-		list.add(per7)
+		list.add(per7);
 	
 		list.forEach(System.out :: println);
 		System.out.println("Enter 1 to kill by gender!!!");
