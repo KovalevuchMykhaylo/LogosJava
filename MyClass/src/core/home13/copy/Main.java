@@ -69,16 +69,16 @@ public class Main {
 	public static Human createMember() {
 		System.out.println("Enter name:");
 		String name = sc.next();
-		System.out.println("enter age");
+		System.out.println("Enter age");
 		int age = sc.nextInt();
 		Human h = new Human(name, age);
 		return h;
 	}
 
 	public static Animal createAnimal() {
-		System.out.println("Enter name:");
+		System.out.println("Enter pet name:");
 		String animalName = sc.next();
-		System.out.println("Enter age");
+		System.out.println("Enter pet type:");
 		AnimalType type = AnimalType.valueOf(sc.next().toUpperCase());
 		Animal an = new Animal(animalName, type);
 		return an;
