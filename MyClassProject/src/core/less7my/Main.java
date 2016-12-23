@@ -11,15 +11,15 @@ public class Main {
 		List<String> list = new ArrayList<>();
 		list.add("Ivan");
 		list.add("Petro");
-		list.add(1, "Mykola"); //пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+		list.add(1, "Mykola"); //так робити не треба
 		list.contains("Ivan");
 		System.out.println(list);
-		System.out.println(list.contains("Ivan"));//contains пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+		System.out.println(list.contains("Ivan"));//contains виведе зачення
 		List<String> list2 = new ArrayList<>();
 		list2.add("Ivan");
 		list2.add("Petro");
 		System.out.println(list.contains(list.containsAll(list2)));
-		list.forEach(System.out::println);//-> пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+		list.forEach(System.out::println);//-> лямда вираз, не як треба, робити, а що треба робити. Интерфейс і його реалізація
 		for (String string : list) {
 			System.out.println(string);
 		}

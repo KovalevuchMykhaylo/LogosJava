@@ -7,7 +7,7 @@ import java.util.Scanner;
 import core.home8.Body; 
 import core.home8.SteeringWheel; 
 import core.home8.Wheel; 
-import core.home8.Car.*; 
+import core.home8.Car.*;
 
 
 public class Main { 

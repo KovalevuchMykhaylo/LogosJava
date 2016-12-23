@@ -4,15 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Scanner;
-import java.util.Spliterator;
-
 import core.less6.Gender;
 import core.less6.Person;
-
 import java.util.Iterator;
-
-import javax.swing.text.GapContent;
-
 public class Mainmy {
 
 			
