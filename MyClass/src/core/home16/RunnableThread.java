@@ -10,29 +10,28 @@ public class RunnableThread implements Runnable {
 	}
 
 	public void fibochiani() {
-		System.out.println("Enter real number:");
-		int num = sc.nextInt();
+		synchronized (RunnableThread.class) {
+			System.out.println("Enter real number:");
+			int n = sc.nextInt();
+			int[] fabochiani = new int[n];
 
-		int[] fibochiani = new int[num];
-
-		int a = 0;
-		int b = 1;
-		int i = 0;
-		fibochiani[0] = 0;
-		fibochiani[1] = 1;
-
-		while (i < num) {
-			fibochiani[i] = a + b;
-			a = b;
-			b = fibochiani[i];
-			i++;
-		}
-		for (int j = fibochiani.length - 1; j >= 0; j--) {
-			System.out.print(fibochiani[j] + " ");
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+			int a = 1, b = 1;
+			int i = 2;
+			fabochiani[0] = 0;
+			fabochiani[1] = 1;
+			while (i < n) {
+				fabochiani[i] = a + b;
+				a = b;
+				b = fabochiani[i];
+				i++;
+			}
+			for (int j = fabochiani.length - 1; j >= 0; j--) {
+				System.out.print(fabochiani[j] + " ");
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}
