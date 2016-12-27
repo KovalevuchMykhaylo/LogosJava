@@ -15,23 +15,24 @@ public class MyThread extends Thread {
 	}
 
 	public void fibochiani() {
+		synchronized (MyThread.class){
 		System.out.println("Enter real number:");
-		int a = 1;
-		int b = 1;
-		int sumFib = 0;
 		int n = sc.nextInt();
-
-		for (int i = 0; i < n; i++) {
-			sumFib = a + b;
-			a = b;
-			b = sumFib;
-
-			System.out.print(sumFib + " ");
-			try {
-				Thread.sleep(1000);
+		 int a = 1, b = 1;
+	        System.out.print(a + " " + b);
+	        int fib = 2, i = 2;
+	        while (i < n) {
+	            fib = a + b;
+	            a = b;
+	            b = fib;
+	            try {
+					Thread.sleep(1000);
+	            System.out.print(" " + fib);
+	            i++;
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+		}
 
 		}
 	}
