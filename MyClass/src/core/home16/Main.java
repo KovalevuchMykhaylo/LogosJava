@@ -10,6 +10,7 @@ public class Main {
 
 	public static void main(String[] args) throws InterruptedException,
 			ExecutionException {
+
 		ExecutorService servis = Executors.newFixedThreadPool(2);
 		Future<Integer> future = servis.submit(new Callable<Integer>() {
 
@@ -17,9 +18,11 @@ public class Main {
 			public Integer call() throws Exception {
 				new MyThread();
 				RunnableThread RunTh = new RunnableThread();
+				System.out.println();
 				Thread fibRev = new Thread(RunTh);
 				fibRev.start();
 				return null;
+
 			}
 
 		});
