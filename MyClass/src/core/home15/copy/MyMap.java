@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Scanner;
 import java.util.Set;
 
 import core.home15.MyEntry;
@@ -31,19 +30,15 @@ public class MyMap<K, V> {
 		System.out.println(set);
 	}
 
-	public void deleteSomeV(V value) {
-		System.out.println("--Detete by value--");
-		System.out.println("Enter value");
-		Scanner sc = new Scanner(System.in);
+	public void deleteSomeV(String string) {
 		Iterator<MyEntry<K, V>> iter = set.iterator();
 		while (iter.hasNext()) {
 			MyEntry<K, V> next = iter.next();
-			if (next.getValue().equals(value)) {
+			if (next.getValue().equals(string)) {
 				next.setValue(null);
 			}
 		}
 		System.out.println(set);
-		sc.close();
 	}
 
 	public void getKeys() {
