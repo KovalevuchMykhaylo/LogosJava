@@ -33,7 +33,7 @@ public class Main {
 			while(true){
 				System.out.println("Enter 1 to to change tires");
 				System.out.println("Enter 2 to delete car with diametr tires");
-				System.out.println("Enter 3 to show car by tires");
+				System.out.println("Enter 3 to change tires");
 					switch (sc.next()) {
 					case "1":
 						cars1();
@@ -51,7 +51,7 @@ public class Main {
 						sc.close();
 						return;
 				
-				}
+						}
 					}
 				}
 				
@@ -74,7 +74,7 @@ public class Main {
 					}
 				}
 				static void cars2(){
-					System.out.println("Enter nim diametr to change tiets");
+					System.out.println("Enter min diametr to change tiets");
 					int min = sc.nextInt();
 					System.out.println("Enter max diametr to change tiets");
 					int max = sc.nextInt();
@@ -83,7 +83,7 @@ public class Main {
 					while (iter.hasNext()) {
 						Car car = iter.next();
 						if(car.getWheel().getDiameter()>=min&&car.getWheel().getDiameter()<=max){
-							Set.remove(car);
+							iter.remove();
 							}
 					}
 					Set.forEach(System.out::println);
@@ -99,7 +99,7 @@ public class Main {
 					while (iter.hasNext()){
 						Car car = iter.next();
 						if(car.getWheel().getTires().equals(type)&&car.getWheel().getDiameter()==Dim){
-							System.out.println(car);//����� ������� ���� ����� � ����� ��� ���
+							System.out.println(car);
 							}
 						}
 					}

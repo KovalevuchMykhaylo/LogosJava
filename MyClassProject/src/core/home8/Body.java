@@ -1,7 +1,5 @@
 package core.home8;
 
-import java.util.Arrays;
-
 public class Body {
 	
 	private String material;

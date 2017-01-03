@@ -65,9 +65,8 @@ public class Five {
 				if(list.get(i).getWheel().getDiameter()<k){
 					System.out.println(i);
 					System.out.println(list.get(i).getVendor()+" with "+ list.get(i).getWheel().getDiameter()+ " of wheel will be changed.");
-					list.set(i, def);
-//					list.remove(i);
-//					list.add(def);
+					list.remove(i);
+					list.add(def);
 					System.out.println();
 					System.out.println("lala");
 					i--;

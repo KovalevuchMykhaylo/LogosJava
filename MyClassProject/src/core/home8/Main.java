@@ -30,40 +30,39 @@ public class Main {
 			list.add(car8); 
 			
 			while(true){
-	System.out.println("Enter 1 to find type of body");
-	System.out.println("Enter 2 to delete car with color");
-	System.out.println("Enter 3 to change tires");
-	System.out.println("Enter 4 to delete all car with body type and diametr");
-	System.out.println("Enter 5 to print index of car with this body type");
-	switch (sc.next()) {
-		case "1":
-			cars1();
-		
-		break;
-		case "2":
-			cars2();
-		
-			break;
-		case "3":
-			cars3();
-		
-			break;
-		case "4":
-			cars4();
-		
-			break;
-		case "5":
-			cars5();
-		
-			break;
-		default:
-			sc.close();
-			return;
-	
+				System.out.println("Enter 1 to find type of body");
+				System.out.println("Enter 2 to delete car with color");
+				System.out.println("Enter 3 to change tires");
+				System.out.println("Enter 4 to delete all car with body type and diametr");
+				System.out.println("Enter 5 to print index of car with this body type");
+					switch (sc.next()) {
+						case "1":
+							cars1();
+						
+						break;
+						case "2":
+							cars2();
+						
+							break;
+						case "3":
+							cars3();
+						
+							break;
+						case "4":
+							cars4();
+						
+							break;
+						case "5":
+							cars5();
+						
+							break;
+						default:
+							sc.close();
+							return;
+					}
+			}
 	}
-		}
-	}
-	
+					
 	static void cars1(){
 		System.out.println("Enter type of body");
 		String j = sc.next();
