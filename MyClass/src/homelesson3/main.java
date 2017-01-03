@@ -250,14 +250,14 @@ public class main {
 		System.out.println("Your going to die: "+i+"%");
 		return 0;
 	}
-	public static int metod24(int num1) {
-		System.out.println("Enter real number:");
-		Scanner n = new Scanner(System.in);
-		int metod24(int n): {
-		int result;
-		if(n == 1) return 1;
-		result = metod24(n-1) * n;
-		return result;
-		}	     
-	}
+//	public static int metod24(int num1) {
+//		System.out.println("Enter real number:");
+//		Scanner n = new Scanner(System.in);
+//		int metod24(int n): {
+//		int result;
+//		if(n == 1) return 1;
+//		result = metod24(n-1) * n;
+//		return result;
+//		}	     
+//	}
 }

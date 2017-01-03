@@ -21,7 +21,7 @@ public static void main(String[] args) {
 				if(exist(Faculty.values(), nameOfFaculty)){
 					Faculty faculty = Faculty.valueOf(nameOfFaculty);//выт€гивает значение эмана
 					for (int i = 0; i < course.length; i++) {
-						if(course[i].getFaculty()==faculty){
+						if(course[i].valueOf(nameOfFaculty).equals(faculty)){
 							System.out.println(course[i]);
 				}
 			}
