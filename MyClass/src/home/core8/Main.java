@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
 
+import org.omg.CORBA.FREE_MEM;
+
 public class Main {
 	private static final Scanner sc = new Scanner(System.in);
 	private static final List<Car> List = new ArrayList<>();
@@ -27,12 +29,16 @@ public class Main {
 		while (true) {
 			System.out.println("Enter 1 to see car whith wheel size: ");
 			System.out.println("Enter 2 to find all car with body color and wheel size: ");
+			System.out.println("Enter 3 to change steering wheel: ");
 			switch (sc.next()) {
 			case "1":
 				one();
 				break;
 			case "2":
 				two();
+				break;
+			case "3":
+				three();
 				break;
 
 			default:
@@ -64,5 +70,16 @@ public class Main {
 			}
 		}
 		System.out.println();
+	}
+	private static void three() {
+		System.out.println("Enter color:");
+		String col = sc.next();
+		for (Car car : List) {
+			if(car.getBody().getColor().equals(col)){
+				car.getSteeringWheel().setSize(11);
+				System.out.println(car);
+			}
+			
+		}
 	}
 }
