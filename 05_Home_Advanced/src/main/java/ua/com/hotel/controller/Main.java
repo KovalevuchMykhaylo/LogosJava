@@ -1,14 +1,10 @@
 package ua.com.hotel.controller;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
-import org.hibernate.event.spi.SaveOrUpdateEvent;
 
 import ua.com.hotel.dao.AditionalServiceDao;
 import ua.com.hotel.dao.CityDao;
