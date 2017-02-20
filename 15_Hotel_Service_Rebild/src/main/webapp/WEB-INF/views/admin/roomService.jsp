@@ -87,21 +87,21 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-2 col-xs-2"><h3>Hotel Name</h3></div>
-			<div class="col-md-1 col-xs-1"><h3>Room Number</h3></div>
-			<div class="col-md-1 col-xs-1"><h3>Rooms in number</h3></div>
+			<div class="col-md-1 col-xs-1"><h3>Hotel Name</h3></div>
+			<div class="col-md-2 col-xs-2"><h3>Room Number</h3></div>
+			<div class="col-md-2 col-xs-2"><h3>Rooms in number</h3></div>
 			<div class="col-md-1 col-xs-1"><h3>Price</h3></div>
-			<div class="col-md-3 col-xs-3"><h3>Type of bath room</h3></div>
+			<div class="col-md-2 col-xs-2"><h3>Type of bath room</h3></div>
 			<div class="col-md-2 col-xs-2"><h3>Type of room</h3></div>
 			<div class="col-md-2 col-xs-2"><h3>Options</h3></div>
 		</div>
 			<c:forEach items="${roomServices}" var="roomService">
 				<div class="row">
-					<div class="col-md-2 col-xs-2">${roomService.hotelName.name}</div>
-					<div class="col-md-1 col-xs-1">${roomService.roomNumber}</div>
-					<div class="col-md-1 col-xs-1">${roomService.room}</div>
+					<div class="col-md-1 col-xs-1">${roomService.hotelName.name}</div>
+					<div class="col-md-2 col-xs-2">${roomService.roomNumber}</div>
+					<div class="col-md-2 col-xs-2">${roomService.room}</div>
 					<div class="col-md-1 col-xs-1">${roomService.price}</div>
-					<div class="col-md-3 col-xs-3">${roomService.typeOfBathRoom.type}</div>
+					<div class="col-md-2 col-xs-2">${roomService.typeOfBathRoom.type}</div>
 					<div class="col-md-2 col-xs-2">${roomService.typeOfRoom.type}</div>
 					<div class="col-md-2 col-xs-2"><a class="btn btn-success" href="/admin/roomService/update/${roomService.id}">update</a>
 						<a class="btn btn-danger" href="/admin/roomService/delete/${roomService.id}">delete</a></div>
