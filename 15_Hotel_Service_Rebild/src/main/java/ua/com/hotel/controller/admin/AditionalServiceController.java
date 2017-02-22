@@ -3,10 +3,10 @@ package ua.com.hotel.controller.admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import ua.com.hotel.entity.AditionalService;
 import ua.com.hotel.service.AditionalServiceService;
@@ -17,6 +17,11 @@ public class AditionalServiceController {
 
 	@Autowired
 	private AditionalServiceService aditionalServiceService;
+	
+	@ModelAttribute("aditionalService")
+	public AditionalService getForm(){
+		return new AditionalService();
+	}
 	
 	@RequestMapping
 	public String show(Model model){
@@ -30,9 +35,7 @@ public class AditionalServiceController {
 		return "redirect:/admin/aditionalService";
 	}
 	@PostMapping
-	public String save(@RequestParam String type){
-		AditionalService aditionalService = new AditionalService();
-		aditionalService.setType(type);
+	public String save(@ModelAttribute("aditionalService") AditionalService aditionalService){
 		aditionalServiceService.save(aditionalService);
 		return "redirect:/admin/aditionalService";
 	}
