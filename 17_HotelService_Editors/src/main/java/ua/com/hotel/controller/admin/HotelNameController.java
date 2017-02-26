@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import ua.com.hotel.editor.AditionalServiceEditor;
 import ua.com.hotel.editor.CityEditor;
+import ua.com.hotel.entity.AditionalService;
 import ua.com.hotel.entity.City;
 import ua.com.hotel.entity.HotelName;
 import ua.com.hotel.service.AditionalServiceService;
@@ -37,6 +39,7 @@ public class HotelNameController {
 	@InitBinder("hotelName")
 	protected void bind(WebDataBinder binder){
 		binder.registerCustomEditor(City.class, new CityEditor(cityService));
+		binder.registerCustomEditor(AditionalService.class, new AditionalServiceEditor(aditionalServiceService));
 	}
 	
 	@RequestMapping
