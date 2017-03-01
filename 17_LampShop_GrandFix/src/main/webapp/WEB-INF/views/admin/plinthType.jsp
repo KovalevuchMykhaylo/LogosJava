@@ -34,19 +34,19 @@
 					<div class="form-group">
 						<label for="plinthType" class="col-sm-2 control-label">Name</label>
 						<div class="col-sm-10">
-							<form:input type="text" class="form-control" path="plinthTypes" id="plinthType" itemLabel="name"/>
+							<form:input type="text" class="form-control" path="name" id="plinthType" itemLabel="plinthType"/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="vendor" class="col-sm-2 control-label">Vandor</label>
 	    					<div class="col-sm-10">
-	      						<form:select class="form-control" path="vendors" id="vendor" items="${vendors}" itemValue="id" itemLabel="name"/>
+	      						<form:select class="form-control" path="vendors" id="vendor" items="${vendors}" itemValue="id" itemLabel="vendor"/>
 	    					</div>
   					</div>
   					<div class="form-group">
 						<label for="category" class="col-sm-2 control-label">Category</label>
 	    					<div class="col-sm-10">
-	      						<form:select class="form-control" path="name" id="category" items="${categorys}" itemValue="id" itemLabel="name"/>
+	      						<form:select class="form-control" path="categorys" id="category" items="${categorys}" itemValue="id" itemLabel="categorys"/>
 	    					</div>
 	  					</div>
 					<div class="form-group">

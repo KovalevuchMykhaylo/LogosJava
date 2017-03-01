@@ -47,7 +47,7 @@
   					<div class="form-group">
 						<label for="plinthType" class="col-sm-2 control-label">Plinth type</label>
 	    					<div class="col-sm-10">
-	      						<form:select class="form-control" path="name" id="plinthTypes" items="${plinthTypes}" itemValue="id" itemLabel="name"/>
+	      						<form:select class="form-control" path="name" id="plinthType" items="${plinthTypes}" itemValue="id" itemLabel="name"/>
 	    					</div>
   					</div>
   					<div class="form-group">
