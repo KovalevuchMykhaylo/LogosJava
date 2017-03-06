@@ -60,8 +60,9 @@ public class CountryProducerController {
 	}
 	
 	@PostMapping
-	public String save(@ModelAttribute("countryProducer") CountryProducer countryProducer){
+	public String save(@ModelAttribute("countryProducer") CountryProducer countryProducer, SessionStatus status){
 		countryProducerService.save(countryProducer);
+		status.setComplete();
 		return "redirect:/admin/countryProducer";
 	}
 	

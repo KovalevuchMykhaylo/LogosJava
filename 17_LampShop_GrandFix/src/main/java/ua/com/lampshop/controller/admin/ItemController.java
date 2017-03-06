@@ -13,14 +13,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import ua.com.lampshop.editor.CategoryEditor;
 import ua.com.lampshop.editor.MeasuringSystemEditor;
 import ua.com.lampshop.editor.PlinthTypeEditor;
 import ua.com.lampshop.editor.VendorEditor;
+import ua.com.lampshop.entity.Category;
 import ua.com.lampshop.entity.CountryProducer;
 import ua.com.lampshop.entity.Item;
 import ua.com.lampshop.entity.MeasuringSystem;
 import ua.com.lampshop.entity.PlinthType;
 import ua.com.lampshop.entity.Vendor;
+import ua.com.lampshop.service.CategoryService;
 import ua.com.lampshop.service.ItemService;
 import ua.com.lampshop.service.MeasuringSystemService;
 import ua.com.lampshop.service.PlinthTypeService;
@@ -43,11 +46,15 @@ public class ItemController {
 	@Autowired
 	private MeasuringSystemService measuringSystemService;
 	
+	@Autowired
+	private CategoryService categoryService;
+	
 	@InitBinder("item")
 	protected void bind(WebDataBinder binder){
 		binder.registerCustomEditor(PlinthType.class, new PlinthTypeEditor(plinthTypeService));
 		binder.registerCustomEditor(Vendor.class, new VendorEditor(vendorService));
 		binder.registerCustomEditor(MeasuringSystem.class, new MeasuringSystemEditor(measuringSystemService));
+		binder.registerCustomEditor(Category.class, new CategoryEditor(categoryService));
 	}
 	
 	@ModelAttribute("item")
@@ -61,6 +68,7 @@ public class ItemController {
 		model.addAttribute("plinthTypes", plinthTypeService.findAll());
 		model.addAttribute("vendors", vendorService.findAll());
 		model.addAttribute("measuringSystems", measuringSystemService.findAll());
+		model.addAttribute("category", categoryService.findAll());
 		return "admin-item";
 	}
 	
@@ -71,8 +79,9 @@ public class ItemController {
 	}
 
 	@PostMapping
-	public String save(@ModelAttribute("item") Item item){
+	public String save(@ModelAttribute("item") Item item, SessionStatus sessionStatus){
 		itemService.save(item);
+		sessionStatus.setComplete();
 		return "redirect:/admin/item";
 	}
 

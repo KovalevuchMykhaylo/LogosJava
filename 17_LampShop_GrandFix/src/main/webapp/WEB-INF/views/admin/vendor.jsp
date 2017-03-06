@@ -53,7 +53,7 @@
   					<div class="form-group">
 						<label for="item" class="col-sm-2 control-label">Item</label>
 	    					<div class="col-sm-10">
-	      						<form:select class="form-control" path="items" id="items" items="${items}" itemValue="id" itemLabel="name"/>
+	      						<form:select class="form-control" path="items" id="item" items="${items}" itemValue="id" itemLabel="name"/>
 	    					</div>
   					</div>
   					<div class="form-group">
@@ -73,6 +73,7 @@
 			<c:forEach items="${vendors}" var="vendor">
 				<div class="row">
 					<div class="col-md-4 col-xs-4">${vendor.name}</div>
+					<div class="col-md-4 col-xs-4">${vendor.items}</div>
 					<div class="col-md-4 col-xs-4"><a class="btn btn-warning" href="/admin/vendor/update/${vendor.id}">update</a></div>
 					<div class="col-md-4 col-xs-4"><a class="btn btn-danger" href="/admin/vendor/delete/${vendor.id}">delete</a></div>
 				</div>

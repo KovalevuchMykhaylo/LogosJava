@@ -34,44 +34,22 @@
 					<div class="form-group">
 						<label for="plinthType" class="col-sm-2 control-label">Name</label>
 						<div class="col-sm-10">
-							<form:input type="text" class="form-control" path="name" id="plinthType" itemLabel="plinthType"/>
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="vendor" class="col-sm-2 control-label">Vandor</label>
-	    					<div class="col-sm-10">
-	      						<form:select class="form-control" path="vendors" id="vendor" items="${vendors}" itemValue="id" itemLabel="vendor"/>
-	    					</div>
-  					</div>
-  					<div class="form-group">
-						<label for="category" class="col-sm-2 control-label">Category</label>
-	    					<div class="col-sm-10">
-	      						<form:select class="form-control" path="categorys" id="category" items="${categorys}" itemValue="id" itemLabel="categorys"/>
-	    					</div>
-	  					</div>
-					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-primary">Create</button>
-							<a href  = "/admin/plinthType/cancel" class="btn btn-primary" >Cancel</a>
+							<form:input type="text" class="form-control" path="name" id="plinthType" itemLabel="name"/>
 						</div>
 					</div>
 				</form:form>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-3 col-xs-3"><h3>Plinth Type name</h3></div>
-			<div class="col-md-3 col-xs-3"><h3>Vendor</h3></div>
-			<div class="col-md-2 col-xs-2"><h3>Categorry</h3></div>
-			<div class="col-md-2 col-xs-2"><h3>Update</h3></div>
-			<div class="col-md-2 col-xs-2"><h3>Delete</h3></div>
+			<div class="col-md-4 col-xs-4"><h3>Plinth Type name</h3></div>
+			<div class="col-md-4 col-xs-4"><h3>Update</h3></div>
+			<div class="col-md-4 col-xs-4"><h3>Delete</h3></div>
 		</div>
 		<c:forEach items="${plinthTypes}" var="plinthType">
 			<div class="row">
-				<div class="col-md-3 col-xs-3">${plinthType.name}</div>
-				<div class="col-md-3 col-xs-3">${plinthType.vendors.name}</div>
-				<div class="col-md-2 col-xs-2">${plinthType.category.name}</div>
-				<div class="col-md-2 col-xs-2"><a class="btn btn-warning" href="/admin/plinthType/update/${plinthType.id}">update</a></div>
-				<div class="col-md-2 col-xs-2"><a class="btn btn-danger" href="/admin/plinthType/delete/${plinthType.id}">delete</a></div>
+				<div class="col-md-4 col-xs-4">${plinthType.name}</div>
+				<div class="col-md-4 col-xs-4"><a class="btn btn-warning" href="/admin/plinthType/update/${plinthType.id}">update</a></div>
+				<div class="col-md-4 col-xs-4"><a class="btn btn-danger" href="/admin/plinthType/delete/${plinthType.id}">delete</a></div>
 			</div>
 		</c:forEach>
 	</div>

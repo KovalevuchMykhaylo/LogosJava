@@ -25,8 +25,6 @@ public class Vendor extends AbstractEntity{
 	private VendorRegion vendorRegion;
 	@ManyToMany(mappedBy = "vendors")
 	private List <Category> categorys = new ArrayList<>();
-	@ManyToMany(mappedBy = "vendors")
-	private List <PlinthType> plinTypes = new ArrayList<>();
 	@OneToMany(mappedBy = "vendor")
 	private List <Item> items = new ArrayList<>();
 	public Vendor() {
@@ -55,12 +53,6 @@ public class Vendor extends AbstractEntity{
 	}
 	public void setCategorys(List<Category> categorys) {
 		this.categorys = categorys;
-	}
-	public List<PlinthType> getPlinTypes() {
-		return plinTypes;
-	}
-	public void setPlinTypes(List<PlinthType> plinTypes) {
-		this.plinTypes = plinTypes;
 	}
 	public List<Item> getItems() {
 		return items;

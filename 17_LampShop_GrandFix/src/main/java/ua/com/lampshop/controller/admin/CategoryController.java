@@ -13,14 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import ua.com.lampshop.editor.PlinthTypeEditor;
-import ua.com.lampshop.editor.VendorRegionEditor;
+import ua.com.lampshop.editor.VendorEditor;
 import ua.com.lampshop.entity.Category;
-import ua.com.lampshop.entity.PlinthType;
-import ua.com.lampshop.entity.VendorRegion;
+import ua.com.lampshop.entity.Vendor;
 import ua.com.lampshop.service.CategoryService;
-import ua.com.lampshop.service.PlinthTypeService;
-import ua.com.lampshop.service.VendorRegionService;
+import ua.com.lampshop.service.VendorService;
 
 @Controller
 @RequestMapping("/admin/category")
@@ -31,15 +28,11 @@ public class CategoryController {
 	private CategoryService categoryService;
 	
 	@Autowired
-	private VendorRegionService vendorRegionService;
-	
-	@Autowired
-	private PlinthTypeService plinthTypeService;
+	private VendorService vendorService;
 	
 	@InitBinder("category")
 	protected void bind(WebDataBinder binder){
-		binder.registerCustomEditor(VendorRegion.class, new VendorRegionEditor(vendorRegionService));
-		binder.registerCustomEditor(PlinthType.class, new PlinthTypeEditor(plinthTypeService));
+		binder.registerCustomEditor(Vendor.class, new VendorEditor(vendorService));
 	}
 	
 	@ModelAttribute("category")
@@ -50,8 +43,7 @@ public class CategoryController {
 	@RequestMapping
 	public String show(Model model){
 		model.addAttribute("categorys", categoryService.findAll());
-		model.addAttribute("vendorRegions", vendorRegionService.findAll());
-		model.addAttribute("plinthTypes", plinthTypeService.findAll());
+		model.addAttribute("vendors", vendorService.findAll());
 		return "admin-category";
 	}
 	

@@ -21,8 +21,6 @@ public class Category extends AbstractEntity{
 	joinColumns=@JoinColumn(name="id_category"),
 	inverseJoinColumns=@JoinColumn(name = "id_vendor"))
 	private List <Vendor> vendors = new ArrayList<>();
-	@ManyToMany(mappedBy = "categorys")
-	private List<PlinthType> plinthTypes = new ArrayList<>();
 	@OneToMany(mappedBy = "category")
 	private List<Item> items = new ArrayList<>();
 	public Category() {
@@ -39,12 +37,6 @@ public class Category extends AbstractEntity{
 	}
 	public void setVendors(List<Vendor> vendors) {
 		this.vendors = vendors;
-	}
-	public List<PlinthType> getPlinthTypes() {
-		return plinthTypes;
-	}
-	public void setPlinthTypes(List<PlinthType> plinthTypes) {
-		this.plinthTypes = plinthTypes;
 	}
 	public List<Item> getItems() {
 		return items;

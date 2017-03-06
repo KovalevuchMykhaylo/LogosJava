@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import ua.com.lampshop.editor.CategoryEditor;
+import ua.com.lampshop.editor.PlinthTypeEditor;
 import ua.com.lampshop.editor.VendorEditor;
 import ua.com.lampshop.entity.Category;
 import ua.com.lampshop.entity.CountryProducer;
@@ -31,16 +32,9 @@ public class PlinthTypeController {
 	@Autowired
 	private PlinthTypeService plinthTypeService;
 	
-	@Autowired
-	private VendorService vendorService;
-	
-	@Autowired
-	private CategoryService categoryService;
-	
 	@InitBinder("plinthType")
 	protected void bind(WebDataBinder binder){
-		binder.registerCustomEditor(Vendor.class, new VendorEditor(vendorService));
-		binder.registerCustomEditor(Category.class, new CategoryEditor(categoryService));
+		binder.registerCustomEditor(PlinthType.class, new PlinthTypeEditor(plinthTypeService));
 	}
 	
 	@ModelAttribute("plinthType")
@@ -51,8 +45,6 @@ public class PlinthTypeController {
 	@RequestMapping
 	public String show(Model model){
 		model.addAttribute("plinthTypes", plinthTypeService.findAll());
-		model.addAttribute("vendors", vendorService.findAll());
-		model.addAttribute("categorys", categoryService.findAll());
 		return "admin-plinthType";
 	}
 	
@@ -62,8 +54,9 @@ public class PlinthTypeController {
 		return "redirect:/admin/plinthType";
 	}
 	@PostMapping
-	public String save(@ModelAttribute("plinthType") PlinthType plinthType){
+	public String save(@ModelAttribute("plinthType") PlinthType plinthType, SessionStatus status){
 		plinthTypeService.save(plinthType);
+		status.setComplete();
 		return "redirect:/admin/plinthType";
 	}
 	

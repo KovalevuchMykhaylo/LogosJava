@@ -46,8 +46,9 @@ public class MeasuringSystemController {
 		return "redirect:/admin/measuringSystem";
 	}
 	@PostMapping
-	public String save(@ModelAttribute ("category") MeasuringSystem measuringSystem){
+	public String save(@ModelAttribute ("category") MeasuringSystem measuringSystem, SessionStatus sessionStatus){
 		measuringSystemService.save(measuringSystem);
+		sessionStatus.setComplete();
 		return "redirect:/admin/measuringSystem";
 	}
 	

@@ -14,12 +14,10 @@ import javax.persistence.Table;
 //Название модели
 @Entity
 @Table(name = "item")
-public class Item {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+public class Item extends AbstractEntity{
 	@Column
 	private String name;
+	private int watt;
 	private BigDecimal price;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_vendor")
@@ -33,48 +31,20 @@ public class Item {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_measuring_system")
 	private MeasuringSystem measuringSystem;
-	public Item(int id, String name, BigDecimal price, Vendor vendor,
-			PlinthType plinthType, Category category,
-			MeasuringSystem measuringSystem) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.price = price;
-		this.vendor = vendor;
-		this.plinthType = plinthType;
-		this.category = category;
-		this.measuringSystem = measuringSystem;
-	}
-	public Item(String name, BigDecimal price, Vendor vendor,
-			PlinthType plinthType, Category category,
-			MeasuringSystem measuringSystem) {
-		super();
-		this.name = name;
-		this.price = price;
-		this.vendor = vendor;
-		this.plinthType = plinthType;
-		this.category = category;
-		this.measuringSystem = measuringSystem;
-	}
-	public Item(String name, BigDecimal price) {
-		super();
-		this.name = name;
-		this.price = price;
-	}
 	public Item() {
 		super();
-	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
 	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public int getWatt() {
+		return watt;
+	}
+	public void setWatt(int watt) {
+		this.watt = watt;
 	}
 	public BigDecimal getPrice() {
 		return price;
@@ -106,6 +76,4 @@ public class Item {
 	public void setMeasuringSystem(MeasuringSystem measuringSystem) {
 		this.measuringSystem = measuringSystem;
 	}
-	
-	
 }

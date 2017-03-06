@@ -13,15 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import ua.com.lampshop.editor.ItemEditor;
-import ua.com.lampshop.editor.PlinthTypeEditor;
 import ua.com.lampshop.editor.VendorRegionEditor;
-import ua.com.lampshop.entity.Item;
-import ua.com.lampshop.entity.PlinthType;
 import ua.com.lampshop.entity.Vendor;
 import ua.com.lampshop.entity.VendorRegion;
-import ua.com.lampshop.service.ItemService;
-import ua.com.lampshop.service.PlinthTypeService;
 import ua.com.lampshop.service.VendorRegionService;
 import ua.com.lampshop.service.VendorService;
 
@@ -36,17 +30,9 @@ public class VendorController {
 	@Autowired
 	private VendorRegionService vengorRegionService;
 	
-	@Autowired
-	private PlinthTypeService plinthTypeService;
-	
-	@Autowired
-	private ItemService itemService;
-	
 	@InitBinder("amount")
 	protected void bind(WebDataBinder binder){
 		binder.registerCustomEditor(VendorRegion.class, new VendorRegionEditor(vengorRegionService));
-		binder.registerCustomEditor(PlinthType.class, new PlinthTypeEditor(plinthTypeService));
-		binder.registerCustomEditor(Item.class, new ItemEditor(itemService));
 	}
 	
 	@ModelAttribute("vendor")
@@ -58,8 +44,6 @@ public class VendorController {
 	public String show(Model model){
 		model.addAttribute("vendors", vendorService.findAll());
 		model.addAttribute("vendorsRegions", vengorRegionService.findAll());
-		model.addAttribute("plinthTypes", plinthTypeService.findAll());
-		model.addAttribute("items", itemService.findAll());
 		return "admin-vendor";
 		
 	}
