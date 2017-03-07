@@ -1,5 +1,7 @@
 package ua.com.lampshop.controller.admin;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,7 +39,7 @@ public class CountryProducerController {
 	
 	@InitBinder("countryProducer")
 	protected void bind(WebDataBinder binder){
-		binder.registerCustomEditor(Vendor.class, new VendorEditor(vendorService));
+		binder.registerCustomEditor(List.class, "vendors", new VendorEditor(vendorService));
 	}
 	
 	@RequestMapping

@@ -45,18 +45,6 @@
 	    					</div>
   					</div>
   					<div class="form-group">
-						<label for="plinthType" class="col-sm-2 control-label">Plinth type</label>
-	    					<div class="col-sm-10">
-	      						<form:select class="form-control" path="name" id="plinthType" items="${plinthTypes}" itemValue="id" itemLabel="name"/>
-	    					</div>
-  					</div>
-  					<div class="form-group">
-						<label for="item" class="col-sm-2 control-label">Item</label>
-	    					<div class="col-sm-10">
-	      						<form:select class="form-control" path="items" id="item" items="${items}" itemValue="id" itemLabel="name"/>
-	    					</div>
-  					</div>
-  					<div class="form-group">
     					<div class="col-sm-offset-2 col-sm-10">
       						<button type="submit" class="btn btn-primary">Create</button>
       						<a href  = "/admin/vendor/cancel" class="btn btn-primary" >Cancel</a>
@@ -66,16 +54,17 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-4 col-xs-4"><h3>Vendor name</h3></div>
-			<div class="col-md-4 col-xs-4"><h3>Update</h3></div>
-			<div class="col-md-4 col-xs-4"><h3>Delete</h3></div>
+			<div class="col-md-3 col-xs-3"><h3>Vendor name</h3></div>
+			<div class="col-md-3 col-xs-3"><h3>Vendor Region name</h3></div>
+			<div class="col-md-3 col-xs-3"><h3>Update</h3></div>
+			<div class="col-md-3 col-xs-3"><h3>Delete</h3></div>
 		</div>
 			<c:forEach items="${vendors}" var="vendor">
 				<div class="row">
-					<div class="col-md-4 col-xs-4">${vendor.name}</div>
-					<div class="col-md-4 col-xs-4">${vendor.items}</div>
-					<div class="col-md-4 col-xs-4"><a class="btn btn-warning" href="/admin/vendor/update/${vendor.id}">update</a></div>
-					<div class="col-md-4 col-xs-4"><a class="btn btn-danger" href="/admin/vendor/delete/${vendor.id}">delete</a></div>
+					<div class="col-md-3 col-xs-3">${vendor.name}</div>
+					<div class="col-md-3 col-xs-3">${vendor.vendorRegion.name}</div>
+					<div class="col-md-3 col-xs-3"><a class="btn btn-warning" href="/admin/vendor/update/${vendor.id}">update</a></div>
+					<div class="col-md-3 col-xs-3"><a class="btn btn-danger" href="/admin/vendor/delete/${vendor.id}">delete</a></div>
 				</div>
 			</c:forEach>
 	</div>

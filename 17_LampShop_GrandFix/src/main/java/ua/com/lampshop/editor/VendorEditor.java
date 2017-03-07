@@ -1,6 +1,8 @@
 package ua.com.lampshop.editor;
 
 import java.beans.PropertyEditorSupport;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 import ua.com.lampshop.entity.Vendor;
 import ua.com.lampshop.service.VendorService;
@@ -15,7 +17,8 @@ public class VendorEditor extends PropertyEditorSupport{
 
 	@Override
 	public void setAsText(String text) throws IllegalArgumentException {
-		Vendor vendor = vendorService.findOne(Long.valueOf(text));
-		setValue(vendor);
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+		setValue(Arrays.stream(text.split("\\,"))
+				.map(String::trim).map(Long::valueOf).map(e->vendorService.findOne(e)).collect(Collectors.toList()));
 	}
 }

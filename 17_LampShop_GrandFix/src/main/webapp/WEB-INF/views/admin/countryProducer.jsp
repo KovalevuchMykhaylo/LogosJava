@@ -31,11 +31,17 @@
 	<div class="col-md-7 col-xs-12">
 		<div class="row">
 			<div class="col-md-12 col-xs-12">
-				<form class="form-horizontal" action="/admin/countryProducer" method="POST">
+				<form:form class="form-horizontal" action="/admin/countryProducer" method="POST" modelAttribute="countryProducer">
 					<div class="form-group">
-    					<label for="countryProducer" class="col-sm-2 control-label">Name</label>
+    					<label for="countryProducer" class="col-sm-2 control-label">Name of country producer</label>
     					<div class="col-sm-10">
-      						<form:input type="text" class="form-control" path="countryProducer" id="countryProducer" modelAttribute="countryProducer"/>
+      						<form:input type="text" class="form-control" path="name" id="countryProducer"/>
+    					</div>
+  					</div>
+  					<div class="form-group">
+    					<label for="vendor" class="col-sm-2 control-label">Vendor</label>
+    					<div class="col-sm-10">
+      						<form:select class="form-control" path="vendors" id="vendor" items="${vendors}" itemValue="id" itemLabel="name"/>
     					</div>
   					</div>
   					<div class="form-group">
@@ -44,19 +50,21 @@
       						<a href  = "/admin/countryProducer/cancel" class="btn btn-primary" >Cancel</a>
     					</div>
   					</div>
-				</form>
+				</form:form>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-4 col-xs-4"><h3>Country Producer name</h3></div>
-			<div class="col-md-4 col-xs-4"><h3>Update</h3></div>
-			<div class="col-md-4 col-xs-4"><h3>Delete</h3></div>
+			<div class="col-md-3 col-xs-3"><h3>Country Producer name</h3></div>
+			<div class="col-md-3 col-xs-3"><h3>Vendor name</h3></div>
+			<div class="col-md-3 col-xs-3"><h3>Update</h3></div>
+			<div class="col-md-3 col-xs-3"><h3>Delete</h3></div>
 		</div>
 			<c:forEach items="${countryProducers}" var="countryProducer">
 				<div class="row">
-					<div class="col-md-4 col-xs-4">${countryProducer.name}</div>
-					<div class="col-md-4 col-xs-4"><a class="btn btn-warning" href="/admin/countryProducer/update/${countryProducer.id}">update</a></div>
-					<div class="col-md-4 col-xs-4"><a class="btn btn-danger" href="/admin/countryProducer/delete/${countryProducer.id}">delete</a></div>
+					<div class="col-md-3 col-xs-3">${countryProducer.name}</div>
+					<div class="col-md-3 col-xs-3">${countryProducer.vendors}</div>
+					<div class="col-md-3 col-xs-3"><a class="btn btn-warning" href="/admin/countryProducer/update/${countryProducer.id}">update</a></div>
+					<div class="col-md-3 col-xs-3"><a class="btn btn-danger" href="/admin/countryProducer/delete/${countryProducer.id}">delete</a></div>
 				</div>
 			</c:forEach>
 	</div>

@@ -60,8 +60,9 @@ public class CategoryController {
 	}
 	
 	@PostMapping
-	public String save(@ModelAttribute ("category") Category category){
+	public String save(@ModelAttribute ("category") Category category, SessionStatus sessionStatus){
 		categoryService.save(category);
+		sessionStatus.setComplete();
 		return "redirect:/admin/category";
 	}
 	

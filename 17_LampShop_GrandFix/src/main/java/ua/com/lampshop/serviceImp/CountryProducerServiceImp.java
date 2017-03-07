@@ -16,7 +16,6 @@ public class CountryProducerServiceImp implements CountryProducerService{
 	private CountryProducerDao countryProducerDao;
  	
 	public void save(CountryProducer countryProducer) {
-		countryProducer.getName().toUpperCase();
 		countryProducerDao.save(countryProducer);
 	}
 
