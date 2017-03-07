@@ -30,7 +30,7 @@ public class VendorController {
 	@Autowired
 	private VendorRegionService vengorRegionService;
 	
-	@InitBinder("amount")
+	@InitBinder("vendor")
 	protected void bind(WebDataBinder binder){
 		binder.registerCustomEditor(VendorRegion.class, new VendorRegionEditor(vengorRegionService));
 	}
@@ -43,7 +43,7 @@ public class VendorController {
 	@GetMapping
 	public String show(Model model){
 		model.addAttribute("vendors", vendorService.findAll());
-		model.addAttribute("vendorsRegions", vengorRegionService.findAll());
+		model.addAttribute("vendorRegions", vengorRegionService.findAll());
 		return "admin-vendor";
 		
 	}
@@ -58,8 +58,9 @@ public class VendorController {
 		return show(model);
 	}
 	@PostMapping
-	public String save(@ModelAttribute("vendor") Vendor vendor){
+	public String save(@ModelAttribute("vendor") Vendor vendor, SessionStatus sessionStatus){
 		vendorService.save(vendor);
+		sessionStatus.setComplete();
 		return "redirect:/admin/vendor";
 	}
 	@RequestMapping("/cancel")

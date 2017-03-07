@@ -42,6 +42,16 @@
       						<input type="text" class="form-control" name="price" id="item">
     					</div>
   					</div>
+  					<div class="form-group">
+    					<label for="catygory" class="col-sm-2 control-label">Category</label>
+    					<div class="col-sm-10">
+      						<select class="form-control" name="catygoryId" id="catygory">
+      							<c:forEach items="${catygorys}" var="catygory">
+      								<option value="${catygory.id}">${catygory.name}</option>
+      							</c:forEach>
+      						</select>
+    					</div>
+  					</div>
 					<div class="form-group">
     					<label for="plinthType" class="col-sm-2 control-label">Plinth Type</label>
     					<div class="col-sm-10">
@@ -83,8 +93,9 @@
 		</div>
 		<div class="row">
 			<div class="col-md-2 col-xs-2"><h3>Item</h3></div>
-			<div class="col-md-2 col-xs-2"><h3>Price</h3></div>
-			<div class="col-md-2 col-xs-2"><h3>Plinth Type</h3></div>
+			<div class="col-md-1 col-xs-1"><h3>Price</h3></div>
+			<div class="col-md-2 col-xs-2"><h3>Category</h3></div>
+			<div class="col-md-1 col-xs-1"><h3>Plinth Type</h3></div>
 			<div class="col-md-2 col-xs-2"><h3>Vendor</h3></div>
 			<div class="col-md-2 col-xs-2"><h3>Measuring system</h3></div>
 			<div class="col-md-2 col-xs-2"><h3>Options</h3></div>
@@ -92,7 +103,8 @@
 			<c:forEach items="${items}" var="item">
 				<div class="row">
 					<div class="col-md-2 col-xs-2">${item.name}</div>
-					<div class="col-md-2 col-xs-2">${item.price}</div>
+					<div class="col-md-1 col-xs-1">${item.price}</div>
+					<div class="col-md-1 col-xs-1">${item.catygory.name}</div>
 					<div class="col-md-2 col-xs-2">${item.plinthType.name}</div>
 					<div class="col-md-2 col-xs-2">${item.vendor.name}</div>
 					<div class="col-md-2 col-xs-2">${item.measuringSystem.name}</div>

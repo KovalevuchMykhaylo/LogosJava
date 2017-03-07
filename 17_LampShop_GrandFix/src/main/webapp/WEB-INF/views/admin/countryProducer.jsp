@@ -60,12 +60,14 @@
 			<div class="col-md-3 col-xs-3"><h3>Delete</h3></div>
 		</div>
 			<c:forEach items="${countryProducers}" var="countryProducer">
-				<div class="row">
-					<div class="col-md-3 col-xs-3">${countryProducer.name}</div>
-					<div class="col-md-3 col-xs-3">${countryProducer.vendors}</div>
-					<div class="col-md-3 col-xs-3"><a class="btn btn-warning" href="/admin/countryProducer/update/${countryProducer.id}">update</a></div>
-					<div class="col-md-3 col-xs-3"><a class="btn btn-danger" href="/admin/countryProducer/delete/${countryProducer.id}">delete</a></div>
-				</div>
+				<c:forEach items="${countryProducer.vendors}" var="vendor">
+					<div class="row">
+						<div class="col-md-3 col-xs-3">${countryProducer.name}</div>
+						<div class="col-md-3 col-xs-3">${countryProducer.vendors}</div>
+						<div class="col-md-3 col-xs-3"><a class="btn btn-warning" href="/admin/countryProducer/update/${countryProducer.id}">update</a></div>
+						<div class="col-md-3 col-xs-3"><a class="btn btn-danger" href="/admin/countryProducer/delete/${countryProducer.id}">delete</a></div>
+					</div>
+				</c:forEach>
 			</c:forEach>
 	</div>
 	<div class="col-md-2 col-xs-12"></div>

@@ -33,15 +33,15 @@
 			<div class="col-md-12 col-xs-12">
 				<form:form class="form-horizontal" action="/admin/vendor" method="POST" modelAttribute="vendor">
 					<div class="form-group">
-    					<label for="name" class="col-sm-2 control-label">Name</label>
+    					<label for="name" class="col-sm-2 control-label">Vendor name</label>
     					<div class="col-sm-10">
-      						<form:input type="text" class="form-control" path="name" id="name"/>
+      						<form:input type="text" class="form-control" path="name" id="vendor"/>
     					</div>
   					</div>
   					<div class="form-group">
-						<label for="vendorRegoin" class="col-sm-2 control-label">Vandor region</label>
+						<label for="vendorRegion" class="col-sm-2 control-label">Vandor region</label>
 	    					<div class="col-sm-10">
-	      						<form:select class="form-control" path="name" id="vendorRegoin" items="${vendorRegoins}" itemValue="id" itemLabel="name"/>
+	      						<form:select class="form-control" path="vendorRegion" id="vendorRegion" items="${vendorRegions}" itemValue="id" itemLabel="name"/>
 	    					</div>
   					</div>
   					<div class="form-group">

@@ -13,7 +13,7 @@ public interface ItemDao extends JpaRepository<Item, Long> {
 	List<Item> findByCategoryId(Long id);
 	@Query("SELECT p FROM Item p WHERE p.plinthType.id = ?1")
 	List<Item> findByPlinthTypeId(Long id);
-	@Query("SELECT i FROM Item i LEFT JOIN FETCH i.plinthType LEFT JOIN FETCH i.vendor LEFT JOIN FETCH i.measuringSystem")
+	@Query("SELECT i FROM Item i LEFT JOIN FETCH i.plinthType LEFT JOIN FETCH i.vendor LEFT JOIN FETCH i.measuringSystem LEFT JOIN FETCH i.category")
 	List<Item> findAll();
 
 }
