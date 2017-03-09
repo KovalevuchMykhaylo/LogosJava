@@ -2,12 +2,15 @@ package ua.com.hotel.dao;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 
 import ua.com.hotel.entity.HotelName;
 
-public interface HotelNameDao extends JpaRepository<HotelName, Long>{
+public interface HotelNameDao extends JpaRepository<HotelName, Long>, JpaSpecificationExecutor<HotelName>{
 	
 	HotelName findByName (String name);
 	
@@ -22,4 +25,7 @@ public interface HotelNameDao extends JpaRepository<HotelName, Long>{
 	
 	@Query("SELECT a FROM HotelName a WHERE a.name=?1 and a.city.id=?2")
 	HotelName findUnique(String type, Long hotelNameId);
+	
+	@Query(value="SELECT a FROM HotelName a LEFT JOIN FETCH a.city", countQuery="SELECT count(a.id) FROM HotelName a")
+	Page<HotelName> findAll(Pageable pageable);
 }

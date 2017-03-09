@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="/WEB-INF/custom.tld" prefix="custom"%>
 <div class="row">
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
@@ -18,7 +19,7 @@
 					<li><a href="/admin/hotelName">Hotel Name</a></li>
 					<li><a href="/admin/typeOfBathRoom">Type Of Bath Room</a></li>
 					<li><a href="/admin/typeOfRoom">Type Of Room</a></li>
-					<li class="active"><a href="/admin/roomService">Room Service</a><span
+					<li class="active"><a href="/admin/roomService<custom:allParams/>">Room Service</a><span
 						class="sr-only">(current)</span></li>
 				</ul>
 			</div>
@@ -26,7 +27,38 @@
 	</nav>
 </div>
 <div class="row">
-	<div class="col-md-3 col-xs-12"></div>
+	<div class="col-md-3 col-xs-12">
+		<form:form class="form-horizontal" action="/admin/roomService" method="GET" modelAttribute="filter">
+			<custom:hiddenInputs excludeParams="min, max, hotelName, typeOfBathRoom, _hotelNameId, _typeOfBathRoomId"/>
+			<div class="form-group">
+				<div class="col-sm-6">
+					<form:input path="min" class="form-control" placeholder="Min"/>
+				</div>
+				<div class="col-sm-6">
+					<form:input path="max" class="form-control" placeholder="Max"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="contol-label col-sm-12">Hotel name</label>
+				<div class="col-sm-12">
+					<form:checkboxes element="div" items="${hotelNames}" itemValue="id" itemLabel="name" path="hotelNameId"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="contol-label col-sm-12">Type of room</label>
+				<div class="col-sm-12">
+					<form:checkboxes element="div" items="${typeOfRooms}" itemValue="id" itemLabel="type" path="typeOfRoomId"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="contol-label col-sm-12">Type of bathroom</label>
+				<div class="col-sm-12">
+					<form:checkboxes element="div" items="${typeOfBathRooms}" itemValue="id" itemLabel="type" path="typeOfBathRoomId"/>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Ok</button>
+		</form:form>
+	</div>
 	<div class="col-md-7 col-xs-12">
 		<div class="row">
 			<div class="col-md-12 col-xs-12">
@@ -88,7 +120,7 @@
 			<div class="col-md-2 col-xs-2"><h3>Type of room</h3></div>
 			<div class="col-md-2 col-xs-2"><h3>Options</h3></div>
 		</div>
-			<c:forEach items="${roomServices}" var="roomService">
+			<c:forEach items="${page.content}" var="roomService">
 				<div class="row">
 					<div class="col-md-1 col-xs-1">${roomService.hotelName.name}</div>
 					<div class="col-md-2 col-xs-2">${roomService.roomNumber}</div>
@@ -96,12 +128,41 @@
 					<div class="col-md-1 col-xs-1">${roomService.price}</div>
 					<div class="col-md-2 col-xs-2">${roomService.typeOfBathRoom.type}</div>
 					<div class="col-md-2 col-xs-2">${roomService.typeOfRoom.type}</div>
-					<div class="col-md-2 col-xs-2"><a class="btn btn-success" href="/admin/roomService/update/${roomService.id}">update</a>
-						<a class="btn btn-danger" href="/admin/roomService/delete/${roomService.id}">delete</a></div>
+					<div class="col-md-2 col-xs-2"><a class="btn btn-success" href="/admin/roomService/update/${roomService.id}<custom:allParams/>">update</a>
+						<a class="btn btn-danger" href="/admin/roomService/delete/${roomService.id}<custom:allParams/>">delete</a></div>
 				</div>
 			</c:forEach>
 	</div>
-	<div class="col-md-2 col-xs-12"></div>
+	<div class="col-md-2 col-xs-12">
+		<div class="row">
+					<div class="col-md-6 col-xs-6 text-center">
+						<div class="dropdown">
+							<button class="btn btn-primary dropdown-toggle" type="button"
+								data-toggle="dropdown">
+								Sort <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<custom:sort innerHtml="Price asc" paramValue="price" />
+								<custom:sort innerHtml="Price desc" paramValue="price,desc" />
+								<custom:sort innerHtml="Hotel name asc" paramValue="hotelName.name" />
+								<custom:sort innerHtml="Hotel name desc" paramValue="hotelName.name,desc" />
+								<custom:sort innerHtml="Type of bathroom name asc" paramValue="typeOfRoom.type" />
+								<custom:sort innerHtml="Type of bathroom name desc" paramValue="typeOfRoom.type,desc" />
+								<custom:sort innerHtml="Type of bathroom name asc" paramValue="typeOfBathRoom.type" />
+								<custom:sort innerHtml="Type of bathroom name desc" paramValue="typeOfBathRoom.type,desc" />
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 col-xs-6 text-center">
+						<custom:size posibleSizes="1,2,5,10" size="${page.size}" />
+					</div>
+				</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12 col-xs-12 text-center">
+		<custom:pageable page="${page}" cell="<li></li>" container="<ul class='pagination'></ul>" />
+	</div>
 </div>
 <script>
 	$('label').each(function() {

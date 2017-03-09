@@ -40,6 +40,7 @@
 		<div class="row">
 			<div class="col-md-12 col-xs-12">
 				<form:form class="form-horizontal" action="/admin/city" method="POST" modelAttribute="city">
+				<custom:hiddenInputs excludeParams="name"/>
 					<div class="form-group">
 						<label for="name" style="color:red;text-align:left;" class="col-sm-10 col-sm-offset-2 control-label"><form:errors path="name"/></label>
 					</div>

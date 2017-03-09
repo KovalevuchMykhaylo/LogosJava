@@ -28,7 +28,7 @@
 </div>
 <div class="row">
 	<div class="col-md-3 col-xs-12">
-		<form:form class="form-inline" action="/admin/ingredient" method="GET" modelAttribute="filter">
+		<form:form class="form-inline" action="/admin/typeOfRoom" method="GET" modelAttribute="filter">
 			<custom:hiddenInputs excludeParams="search"/>
 			<div class="form-group">
 				<form:input path="search" class="form-control" placeholder="Search"/>

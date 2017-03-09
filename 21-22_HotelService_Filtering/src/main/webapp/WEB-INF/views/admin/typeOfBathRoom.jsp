@@ -28,7 +28,7 @@
 </div>
 <div class="row">
 	<div class="col-md-3 col-xs-12">
-		<form:form class="form-inline" action="/admin/ingredient" method="GET" modelAttribute="filter">
+		<form:form class="form-inline" action="/admin/typeOfBathRoom" method="GET" modelAttribute="filter">
 			<custom:hiddenInputs excludeParams="search"/>
 				<div class="form-group">
 					<form:input path="search" class="form-control" placeholder="Search"/>
@@ -40,6 +40,7 @@
 		<div class="row">
 			<div class="col-md-12 col-xs-12">
 				<form:form class="form-horizontal" action="/admin/typeOfBathRoom" method="POST" modelAttribute="typeOfBathRoom">
+				<custom:hiddenInputs excludeParams="type"/>
 					<div class="form-group">
 						<label for="type" style="color:red;text-align:left;" class="col-sm-10 col-sm-offset-2 control-label"><form:errors path="type"/></label>
 					</div>

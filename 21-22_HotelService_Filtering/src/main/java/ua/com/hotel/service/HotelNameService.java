@@ -2,6 +2,10 @@ package ua.com.hotel.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import ua.com.hotel.dto.filter.HotelNameFilter;
 import ua.com.hotel.entity.HotelName;
 
 public interface HotelNameService {
@@ -19,4 +23,6 @@ public interface HotelNameService {
 	List<HotelName> findByCityId(Long id);
 
 	HotelName findUnique(String name);
+	
+	Page<HotelName> findAll(Pageable pageable, HotelNameFilter filter);
 }

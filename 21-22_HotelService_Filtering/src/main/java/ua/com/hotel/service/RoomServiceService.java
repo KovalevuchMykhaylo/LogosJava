@@ -2,6 +2,10 @@ package ua.com.hotel.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import ua.com.hotel.dto.filter.RoomServiceFilter;
 import ua.com.hotel.dto.form.RoomServiceForm;
 import ua.com.hotel.entity.HotelName;
 import ua.com.hotel.entity.RoomService;
@@ -26,4 +30,6 @@ public interface RoomServiceService {
 			TypeOfBathRoom typeOfBathRoom, TypeOfRoom typeOfRoom);
 	
 	List<RoomService> finRoomService();
+	
+	Page<RoomService> findAll(Pageable pageable, RoomServiceFilter filter);
 }

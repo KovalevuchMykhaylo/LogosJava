@@ -48,7 +48,7 @@ public class TypeOfRoomServiceImp implements TypeOfRoomService{
 		private Specification<TypeOfRoom> findByNameLike(SimpleFilter filter) {
 			return (root, query, cb)->{
 				if(filter.getSearch().isEmpty())return null;
-				return cb.like(cb.lower(root.get("name")), filter.getSearch().toLowerCase()+"%");
+				return cb.like(cb.lower(root.get("type")), filter.getSearch().toLowerCase()+"%");
 			};
 		}
 }

@@ -3,11 +3,15 @@ package ua.com.hotel.serviceImp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import ua.com.hotel.dao.HotelNameDao;
+import ua.com.hotel.dto.filter.HotelNameFilter;
 import ua.com.hotel.entity.HotelName;
 import ua.com.hotel.service.HotelNameService;
+import ua.com.hotel.specification.HotelNameSpecification;
 
 @Service
 public class HotelNameServiceImp implements HotelNameService {
@@ -45,6 +49,11 @@ public class HotelNameServiceImp implements HotelNameService {
 	@Override
 	public HotelName findUnique(String name) {
 		return findByName(name);
+	}
+
+	@Override
+	public Page<HotelName> findAll(Pageable pageable, HotelNameFilter filter) {
+		return hotelNameDao.findAll(new HotelNameSpecification(filter), pageable);
 	}
 
 }

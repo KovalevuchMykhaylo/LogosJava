@@ -4,15 +4,19 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import ua.com.hotel.dao.RoomServiceDao;
+import ua.com.hotel.dto.filter.RoomServiceFilter;
 import ua.com.hotel.dto.form.RoomServiceForm;
 import ua.com.hotel.entity.HotelName;
 import ua.com.hotel.entity.RoomService;
 import ua.com.hotel.entity.TypeOfBathRoom;
 import ua.com.hotel.entity.TypeOfRoom;
 import ua.com.hotel.service.RoomServiceService;
+import ua.com.hotel.specification.RoomServiceSpecification;
 
 @Service
 public class RoomServiceServiceImp implements RoomServiceService {
@@ -71,6 +75,11 @@ public class RoomServiceServiceImp implements RoomServiceService {
 	@Override
 	public List<RoomService> finRoomService() {
 		return roomServiceDao.findAllRoomsServices();
+	}
+
+	@Override
+	public Page<RoomService> findAll(Pageable pageable, RoomServiceFilter filter) {
+		return roomServiceDao.findAll(new RoomServiceSpecification(filter), pageable);
 	}
 
 }
