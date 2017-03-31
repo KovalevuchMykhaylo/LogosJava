@@ -93,6 +93,7 @@ public class UserRentDateController {
 	@PostMapping
 	public String save(@PathVariable Long id, @ModelAttribute ("rentDate") @Valid RentDateForm rentDateForm, BindingResult br, Model model, SessionStatus status){
 		if(br.hasErrors()) return roomsInHotel(id, model);
+		rentDateForm.setUser(userService.findOne(getSignedUpUser()));
 		rentDateService.save(rentDateForm);
 		status.setComplete();
 		return "redirect:/roomService/"+id;
