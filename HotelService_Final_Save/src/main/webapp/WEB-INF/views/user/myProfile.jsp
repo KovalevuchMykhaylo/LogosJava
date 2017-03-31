@@ -12,7 +12,7 @@
 <%-- <h2>Your rent: ${user.rentDates}</h2> --%>
 	<p>Run forest run</p>
 	<c:forEach items= "${rentDates}" var="rentDate">
-	<p>${rentDate.first} - ${rentDate.first}</p>
+	<p>${rentDate.first} - ${rentDate.second}</p>
 	</c:forEach>
 </body>
 </html>

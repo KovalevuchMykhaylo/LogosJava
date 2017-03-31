@@ -92,16 +92,21 @@ public class UserRentDateController {
 	
 	@PostMapping
 	public String save(@PathVariable Long id, @ModelAttribute ("rentDate") @Valid RentDateForm rentDateForm, BindingResult br, Model model, SessionStatus status, Principal principal){
+		System.out.println(rentDateForm.getFirst().toString());
+		System.out.println(rentDateForm.getSecond().toString());
 		if(br.hasErrors()) return roomsInHotel(id, model);
 		userService.sendMail("HotelService", principal.getName(), "We wil call you!!!");
 		rentDateForm.setUser(userService.findOne(getSignedUpUser()));
+//		rentDateForm.setFirst(rentDateForm.getFirst());
+//		rentDateForm.setSecond(rentDateForm.getFirst());
 		rentDateService.save(rentDateForm);
 		status.setComplete();
 		return "redirect:/roomService/"+id;
 	}
 	
 	@RequestMapping("/cancel{id}")
-	public String cancel(@PathVariable Long id) {
+	public String cancel(@PathVariable Long id, SessionStatus status) {
+		status.setComplete();
 		return "redirect:/roomService/"+id;
 	}
 	

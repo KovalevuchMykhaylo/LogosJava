@@ -56,4 +56,9 @@ public class RentDate extends AbstractEntity {
 		this.second = second;
 	}
 
+	@Override
+	public String toString() {
+		return "RentDate [first=" + first + ", second=" + second + "]";
+	}
+
 }

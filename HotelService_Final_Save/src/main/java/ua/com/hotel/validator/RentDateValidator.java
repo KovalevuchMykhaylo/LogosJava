@@ -40,6 +40,8 @@ public class RentDateValidator implements Validator{
 			errors.rejectValue("first", "", "Can be separated only . or write only numbers");
 			errors.rejectValue("second", "", "Can be separated only . or write only numbers");
 		}
+		System.out.println("Hello");
+		System.out.println(rentDateService.findFirstByRoomService(LocalDate.parse(form.getFirst().replace(".", "-")), LocalDate.parse(form.getSecond().replace(".", "-")), form.getRoomService().getId()));
 		if(!rentDateService.findFirstByRoomService(LocalDate.parse(form.getFirst().replace(".", "-")), LocalDate.parse(form.getSecond().replace(".", "-")), form.getRoomService().getId()).isEmpty()){
 			errors.rejectValue("first", "", "Allready exists");
 			errors.rejectValue("second", "", "Allready exists");
