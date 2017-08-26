@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import ua.com.lampshop.editor.VendorEditor;
 import ua.com.lampshop.editor.VendorRegionEditor;
 import ua.com.lampshop.entity.Vendor;
 import ua.com.lampshop.entity.VendorRegion;
@@ -33,6 +34,7 @@ public class VendorController {
 	@InitBinder("vendor")
 	protected void bind(WebDataBinder binder){
 		binder.registerCustomEditor(VendorRegion.class, new VendorRegionEditor(vengorRegionService));
+		binder.registerCustomEditor(Vendor.class, new VendorEditor(vendorService));
 	}
 	
 	@ModelAttribute("vendor")
